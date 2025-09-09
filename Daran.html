@@ -246,7 +246,7 @@
 
       <div class="section-toggle">
         <button onclick="showSkills()">Show Skills</button>
-        <button onclick="showCertifications()">Show Certifications</button>
+        <button onclick="showcertifications()">Show certifications</button>
       </div>
 
       <div id="toggle-section" class="section-block">
@@ -306,7 +306,7 @@
       "Stress management and mental wellbeing"
     ];
 
-        const Certifications = [
+      const certifications = [
       "15 years of health coaching experience",
       "Corrective exercise & injury rehabilitation",
       "Weight management & body re-composition",
@@ -328,7 +328,7 @@
 
     function generateQRCode() {
       const memberId = document.getElementById("memberId").value || "___________";
-      const email = "Shridaran.Rao@virginactive.com.sg@virginactive.com.sg";
+      const email = "Shridaran.Rao@virginactive.com.sg";
       const subject = "Training Inquiry";
   // Using explicit line breaks and proper encoding
  const body = `Hello Daran,%0D%0A%0D%0AMy Member ID is: ${memberId}%0D%0A%0D%0AI am interested in more about personal training and would like to have a wellness consultation.`;
