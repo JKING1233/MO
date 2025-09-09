@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Mario - Trainer Profile</title>
+  <title>Ryan - Trainer Profile</title>
   <style>
     body {
       margin: 0;
@@ -235,17 +235,18 @@
 
   <div class="profile-card">
     <div class="profile-image">
-      <img src="Mario.jpg" alt="Mario - Trainer" />
+      <img src="Ryan.jpg" alt="Ryan - Trainer" />
     </div>
     <div class="profile-details">
-      <h1>Fazrul</h1>
-      <h2>Coach</h2>
+      <h1>Ryan</h1>
+      <h2>Senior Coach</h2>
       <div class="interests">
         <strong>I'm into:</strong> Corrective Exercise, Injury Management & Rehab, Weight & Body Re-Composition, Pre/Post-Natal Training, Women’s Health, Stress Relief through Exercise, and Mentorship.
       </div>
 
       <div class="section-toggle">
         <button onclick="showSkills()">Show Skills</button>
+        <button onclick="showCertifications()">Show Certifications</button>
       </div>
 
       <div id="toggle-section" class="section-block">
@@ -305,6 +306,16 @@
       "Stress management and mental wellbeing"
     ];
 
+        const Certifications = [
+      "15 years of health coaching experience",
+      "Corrective exercise & injury rehabilitation",
+      "Weight management & body re-composition",
+      "Women’s health & pre/post-natal training",
+      "Coaching senior population",
+      "Mentoring and educating trainers",
+      "Stress management and mental wellbeing"
+    ];
+
     function showSkills() {
       document.getElementById("toggle-title").textContent = "Skills";
       document.getElementById("toggle-content").innerHTML = skills.map(item => `<li>${item}</li>`).join('');
@@ -317,10 +328,10 @@
 
     function generateQRCode() {
       const memberId = document.getElementById("memberId").value || "___________";
-      const email = "Mario.Chua@virginactive.com.sg";
+      const email = "Mario.Chua@virginactive.com.sg@virginactive.com.sg";
       const subject = "Training Inquiry";
   // Using explicit line breaks and proper encoding
- const body = `Hello Mario,%0D%0A%0D%0AMy Member ID is: ${memberId}%0D%0A%0D%0AI am interested in more about personal training and would like to have a wellness consultation.`;
+ const body = `Hello Ryan,%0D%0A%0D%0AMy Member ID is: ${memberId}%0D%0A%0D%0AI am interested in more about personal training and would like to have a wellness consultation.`;
 
   const mailtoLink = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${body}`;
 
