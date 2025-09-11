@@ -12,6 +12,7 @@
       color: #fff;
     }
 
+    /* Profile Card Layout */
     .profile-card {
       max-width: 1000px;
       margin: 40px auto;
@@ -78,6 +79,7 @@
       color: #d0001f;
     }
 
+    /* Skills / Certifications Section */
     .section-block {
       background: #b8001a;
       padding: 15px;
@@ -133,7 +135,7 @@
       margin: 0;
     }
 
-    /* Contact Info */
+    /* Contact Info Section */
     .contact-info {
       margin-top: 30px;
       padding: 20px;
@@ -192,7 +194,7 @@
       transition: background-color 0.3s, color 0.3s;
     }
 
-    /* Testimonials */
+    /* Testimonials Section */
     .testimonial-section {
       background-color: #fff;
       padding: 40px 20px;
@@ -225,9 +227,12 @@
 <body>
 
   <div class="profile-card">
+    <!-- Profile Image -->
     <div class="profile-image">
       <img src="Reuben.jpg" alt="Reuben - Trainer" />
     </div>
+
+    <!-- Profile Details -->
     <div class="profile-details">
       <h1>Reuben</h1>
       <h2>Coach</h2>
@@ -235,11 +240,13 @@
         <strong>About Me:</strong> Hypertrophy, Strength Training, Plyometric Training, Weight Loss.
       </div>
 
+      <!-- Toggle Buttons -->
       <div class="section-toggle">
         <button onclick="showSkills()">Show Skills</button>
         <button onclick="showCertifications()">Show Certifications</button>
       </div>
 
+      <!-- Skills / Certifications Section -->
       <div id="toggle-section" class="section-block">
         <h3 id="toggle-title">Skills</h3>
         <ul id="toggle-content">
@@ -250,17 +257,20 @@
         </ul>
       </div>
 
+      <!-- Philosophy -->
       <div class="philosophy">
         <h3>Philosophy</h3>
         <p>"Exercise is never a punishment but a celebration of our physical and mental capabilities!"</p>
       </div>
 
+      <!-- Contact Info -->
       <div class="contact-info">
         <h3>Contact Information</h3>
         <div class="notification" style="background-color: rgba(255,255,255,0.2); padding: 10px; border-radius: 5px; margin-bottom: 15px;">
           <p style="margin: 0; font-style: italic;">After scanning the QR Code, our trainers will contact you within 24-48 hours.</p>
         </div>
         
+        <!-- Member ID Input and QR Code -->
         <div class="member-id-section">
           <label for="memberId">Enter Your Member ID:</label><br>
           <input type="text" id="memberId" placeholder="e.g. 123456789"/><br>
@@ -269,10 +279,12 @@
         </div>
       </div>
 
+      <!-- Back Link -->
       <a class="back-link" href="Main.html">← Back to Home</a>
     </div>
   </div>
 
+  <!-- Testimonials -->
   <section class="testimonial-section">
     <div class="testimonial-container">
       <h2>Client Testimonials</h2>
@@ -295,16 +307,19 @@
       "NITEC in Fitness Training"
     ];
 
+    // Show Skills
     function showSkills() {
       document.getElementById("toggle-title").textContent = "Skills";
       document.getElementById("toggle-content").innerHTML = skills.map(item => `<li>${item}</li>`).join('');
     }
 
+    // Show Certifications
     function showCertifications() {
       document.getElementById("toggle-title").textContent = "Certifications";
       document.getElementById("toggle-content").innerHTML = certifications.map(item => `<li>${item}</li>`).join('');
     }
 
+    // Generate QR Code
     function generateQRCode() {
       const memberId = document.getElementById("memberId").value || "___________";
       const email = "Jin.Fa@virginactive.com.sg";
@@ -328,6 +343,7 @@
       });
     }
 
+    // Load default view
     window.onload = function() {
       showSkills();
     };
