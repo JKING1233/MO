@@ -237,9 +237,10 @@
       </div>
 
       <div class="section-toggle">
-        <button onclick="showSkills(event)" class="active">Show Skills</button>
-       <button onclick="showCertifications(event)">Show Certifications</button>
+  <button onclick="showSkills(event)" class="active">Show Skills</button>
+  <button onclick="showCertifications(event)">Show Certifications</button>
 </div>
+
 
       <div id="toggle-section" class="section-block">
         <h3 id="toggle-title">Skills</h3>
@@ -262,12 +263,11 @@
           <p style="margin: 0; font-style: italic;">After scanning the QR Code, our trainers will contact you within 24-48 hours.</p>
         </div>
         <div class="member-id-section">
-          <label for="memberId">Enter Your Member ID:</label><br>
-          <input type="text" id="memberId" placeholder="e.g. 123456789"/><br>
-          <button onclick="generateQRCode()">Generate QR Code</button>
-          <div id="qr-code"></div>
-        </div>
-      </div>
+        <label for="memberId">Enter Your Member ID:</label><br>
+        <input type="text" id="memberId" placeholder="e.g. 123456789"/><br>
+        <button onclick="generateQRCode()">Generate QR Code</button>
+        <div id="qr-code"></div>
+        </div>  
 
       <a class="back-link" href="Main.html">← Back to Home</a>
     </div>
