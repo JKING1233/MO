@@ -221,6 +221,46 @@
       font-style: italic;
       color: #777;
     }
+    /* Carousel */
+.carousel {
+  position: relative;
+  overflow: hidden;
+}
+
+.carousel-item {
+  display: none;
+  animation: fade 1s ease-in-out;
+}
+
+.carousel-item.active {
+  display: block;
+}
+
+@keyframes fade {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+/* Dots */
+.dots {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.dot {
+  height: 12px;
+  width: 12px;
+  margin: 0 5px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.dot.active {
+  background-color: #d0001f;
+}
   </style>
 </head>
 <body>
@@ -358,6 +398,54 @@
         correctLevel: QRCode.CorrectLevel.H
       });
     }
+
+    // Carousel Functionality
+    let currentSlideIndex = 0;
+    let slideInterval;
+    const slides = document.querySelectorAll('.carousel-slide');
+    const indicators = document.querySelectorAll('.indicator');
+    const rotationSpeed = 3000; // 3 seconds between slides
+
+    function showSlide(index) {
+      slides.forEach(slide => slide.classList.remove('active'));
+      indicators.forEach(indicator => indicator.classList.remove('active'));
+      
+      currentSlideIndex = index;
+      slides[currentSlideIndex].classList.add('active');
+      indicators[currentSlideIndex].classList.add('active');
+    }
+
+    function moveSlide(direction) {
+      let newIndex = currentSlideIndex + direction;
+      
+      if (newIndex < 0) {
+        newIndex = slides.length - 1;
+      } else if (newIndex >= slides.length) {
+        newIndex = 0;
+      }
+      
+      showSlide(newIndex);
+      resetInterval(); // Reset the auto-rotation timer when manually navigating
+    }
+
+    function goToSlide(index) {
+      showSlide(index);
+      resetInterval(); // Reset the auto-rotation timer when clicking dots
+    }
+
+    function startAutoRotation() {
+      slideInterval = setInterval(() => moveSlide(1), rotationSpeed);
+    }
+
+    function resetInterval() {
+      clearInterval(slideInterval);
+      startAutoRotation();
+    }
+
+    // Pause auto-rotation when hovering over carousel
+    const carousel = document.querySelector('.carousel');
+    carousel.addEventListener('mouseenter', () => clearInterval(slideInterval));
+    carousel.addEventListener('mouseleave', startAutoRotation);
 
     window.onload = function() {
       showSkills({ target: document.querySelector(".section-toggle button") });
