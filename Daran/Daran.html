@@ -282,7 +282,34 @@
     .dot.active {
       background-color: #d0001f;
     }
-    
+
+    /* Arrows */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: auto;
+  padding: 12px;
+  margin-top: -22px;
+  color: #d0001f;
+  font-weight: bold;
+  font-size: 28px;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  background: rgba(255, 255, 255, 0.7);
+  transition: background 0.3s;
+}
+
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.prev:hover, .next:hover {
+  background: #d0001f;
+  color: #fff;
+}
   </style>
 </head>
 <body>
@@ -364,14 +391,17 @@ If you’re looking for a knowledgeable, motivating personal trainer who can hel
         </div>
       </div>
 
-      <!-- Dots -->
-      <div class="dots">
-        <span class="dot active" onclick="showSlide(0)"></span>
-        <span class="dot" onclick="showSlide(1)"></span>
-        <span class="dot" onclick="showSlide(2)"></span>
-      </div>
-    </div>
-  </section>
+       <!-- Navigation Arrows -->
+  <a class="prev" onclick="moveSlide(-1)">&#10094;</a>
+  <a class="next" onclick="moveSlide(1)">&#10095;</a>
+</div>
+
+<!-- Dots -->
+<div class="dots">
+  <span class="dot active" onclick="goToSlide(0)"></span>
+  <span class="dot" onclick="goToSlide(1)"></span>
+  <span class="dot" onclick="goToSlide(2)"></span>
+</div>
 
 
   <!-- QR Code Library -->
@@ -422,57 +452,50 @@ If you’re looking for a knowledgeable, motivating personal trainer who can hel
       });
     }
     
-    // Carousel Functionality
-    let currentSlideIndex = 0;
-    let slideInterval;
-    const slides = document.querySelectorAll('.carousel-slide');
-    const indicators = document.querySelectorAll('.indicator');
-    const rotationSpeed = 3000; // 3 seconds between slides
+    <script>
+  let currentSlideIndex = 0;
+  let slideInterval;
+  const slides = document.querySelectorAll('.carousel-item');
+  const dots = document.querySelectorAll('.dot');
+  const rotationSpeed = 5000; // 5 seconds
 
-    function showSlide(index) {
-      slides.forEach(slide => slide.classList.remove('active'));
-      indicators.forEach(indicator => indicator.classList.remove('active'));
-      
-      currentSlideIndex = index;
-      slides[currentSlideIndex].classList.add('active');
-      indicators[currentSlideIndex].classList.add('active');
-    }
+  function showSlide(index) {
+    slides.forEach((slide, i) => {
+      slide.classList.remove('active');
+      dots[i].classList.remove('active');
+    });
 
-    function moveSlide(direction) {
-      let newIndex = currentSlideIndex + direction;
-      
-      if (newIndex < 0) {
-        newIndex = slides.length - 1;
-      } else if (newIndex >= slides.length) {
-        newIndex = 0;
-      }
-      
-      showSlide(newIndex);
-      resetInterval(); // Reset the auto-rotation timer when manually navigating
-    }
+    currentSlideIndex = index;
+    slides[currentSlideIndex].classList.add('active');
+    dots[currentSlideIndex].classList.add('active');
+  }
 
-    function goToSlide(index) {
-      showSlide(index);
-      resetInterval(); // Reset the auto-rotation timer when clicking dots
-    }
+  function moveSlide(direction) {
+    let newIndex = currentSlideIndex + direction;
+    if (newIndex < 0) newIndex = slides.length - 1;
+    if (newIndex >= slides.length) newIndex = 0;
+    showSlide(newIndex);
+    resetInterval();
+  }
 
-    function startAutoRotation() {
-      slideInterval = setInterval(() => moveSlide(1), rotationSpeed);
-    }
+  function goToSlide(index) {
+    showSlide(index);
+    resetInterval();
+  }
 
-    function resetInterval() {
-      clearInterval(slideInterval);
-      startAutoRotation();
-    }
+  function startAutoRotation() {
+    slideInterval = setInterval(() => moveSlide(1), rotationSpeed);
+  }
 
-    // Pause auto-rotation when hovering over carousel
-    const carousel = document.querySelector('.carousel');
-    carousel.addEventListener('mouseenter', () => clearInterval(slideInterval));
-    carousel.addEventListener('mouseleave', startAutoRotation);
+  function resetInterval() {
+    clearInterval(slideInterval);
+    startAutoRotation();
+  }
 
-    window.onload = function() {
-      showSkills();
-    };
-  </script>
+  window.onload = function() {
+    showSlide(0);
+    startAutoRotation();
+  };
+</script>
 </body>
 </html>
