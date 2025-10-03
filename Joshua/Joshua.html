@@ -73,7 +73,6 @@
       transition: background-color 0.3s, color 0.3s;
     }
 
-    /* Active Button Style */
     .section-toggle button.active {
       background-color: #d0001f;
       color: #fff;
@@ -134,7 +133,7 @@
       margin: 0;
     }
 
-    /* Contact Info Section */
+    /* Contact Info */
     .contact-info {
       margin-top: 30px;
       padding: 20px;
@@ -217,78 +216,86 @@
       margin-bottom: 20px;
     }
 
-    .placeholder {
+    .testimonial-text {
+      font-size: 1.1em;
       font-style: italic;
-      color: #777;
+      margin-bottom: 10px;
+      color: #444;
     }
+
+    .client-name {
+      font-weight: bold;
+      color: #d0001f;
+    }
+
     /* Carousel */
-.carousel {
-  position: relative;
-  overflow: hidden;
-}
+    .carousel {
+      position: relative;
+      overflow: hidden;
+    }
 
-.carousel-item {
-  display: none;
-  animation: fade 1s ease-in-out;
-}
+    .carousel-item {
+      display: none;
+      animation: fade 1s ease-in-out;
+    }
 
-.carousel-item.active {
-  display: block;
-}
+    .carousel-item.active {
+      display: block;
+    }
 
-@keyframes fade {
-  from {opacity: 0;}
-  to {opacity: 1;}
-}
+    @keyframes fade {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
 
-/* Dots */
-.dots {
-  text-align: center;
-  margin-top: 20px;
-}
+    /* Dots */
+    .dots {
+      text-align: center;
+      margin-top: 20px;
+    }
 
-.dot {
-  height: 12px;
-  width: 12px;
-  margin: 0 5px;
-  background-color: #bbb;
-  border-radius: 50%;
-  display: inline-block;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
+    .dot {
+      height: 12px;
+      width: 12px;
+      margin: 0 5px;
+      background-color: #bbb;
+      border-radius: 50%;
+      display: inline-block;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
 
-.dot.active {
-  background-color: #d0001f;
-}
-    
+    .dot.active {
+      background-color: #d0001f;
+    }
+
     /* Arrows */
-.prev, .next {
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: auto;
-  padding: 12px;
-  margin-top: -22px;
-  color: #d0001f;
-  font-weight: bold;
-  font-size: 28px;
-  border-radius: 0 3px 3px 0;
-  user-select: none;
-  background: rgba(255, 255, 255, 0.7);
-  transition: background 0.3s;
-}
+    .prev, .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: auto;
+      padding: 12px;
+      margin-top: -22px;
+      color: #d0001f;
+      font-weight: bold;
+      font-size: 28px;
+      border-radius: 0 3px 3px 0;
+      user-select: none;
+      background: rgba(255, 255, 255, 0.7);
+      transition: background 0.3s;
+    }
 
-.next {
-  right: 0;
-  border-radius: 3px 0 0 3px;
-}
+    .next {
+      right: 0;
+      border-radius: 3px 0 0 3px;
+    }
 
-.prev:hover, .next:hover {
-  background: #d0001f;
-  color: #fff;
-}
+    .prev:hover, .next:hover {
+      background: #d0001f;
+      color: #fff;
+    }
   </style>
 </head>
 <body>
@@ -305,8 +312,8 @@
       </div>
 
       <div class="section-toggle">
-      <button onclick="showSkills(event)" class="active">Show Skills</button>
-      <button onclick="showCertifications(event)">Show Certifications</button>
+        <button onclick="showSkills(event)" class="active">Show Skills</button>
+        <button onclick="showCertifications(event)">Show Certifications</button>
       </div>
 
       <div id="toggle-section" class="section-block">
@@ -332,10 +339,10 @@
           <p style="margin: 0; font-style: italic;">After scanning the QR Code, our trainers will contact you within 24-48 hours.</p>
         </div>
         <div class="member-id-section">
-        <label for="memberId">Enter Your Member ID:</label><br>
-        <input type="text" id="memberId" placeholder="e.g. 123456789"/><br>
-         <button onclick="generateQRCode()">Generate QR Code</button>
-        <div id="qr-code"></div>
+          <label for="memberId">Enter Your Member ID:</label><br>
+          <input type="text" id="memberId" placeholder="e.g. 123456789"/><br>
+          <button onclick="generateQRCode()">Generate QR Code</button>
+          <div id="qr-code"></div>
         </div>
       </div>
 
@@ -343,38 +350,36 @@
     </div>
   </div>
 
+  <!-- Testimonials -->
   <section class="testimonial-section">
     <div class="testimonial-container">
       <h2>Client Testimonials</h2>
-          <div class="carousel">
-      <!-- Testimonial 1 -->
-      <div class="carousel-item active">
-        <p class="testimonial-text" style="font-size:1.1em; font-style:italic; margin-bottom:10px; color:#444;">
-          "Joshua is an empathetic person, genuinely concerned with improving his student’s quality of life. He always keeps the focus on what truly matters, asking: “Is your family doing well? Are you sleeping enough? How is your nutrition?”.
-          It is very rare to find this kind of care in an environment where aesthetics often come before everything else.<br><br>
+      
+      <div class="carousel">
+        <!-- Testimonial 1 -->
+        <div class="carousel-item active">
+          <p class="testimonial-text">
+            "Joshua is an empathetic person, genuinely concerned with improving his student’s quality of life. He always keeps the focus on what truly matters, asking: “Is your family doing well? Are you sleeping enough? How is your nutrition?”.<br><br>
+            In addition, his technique is extremely refined, both in teaching exercise execution and in explaining the science behind the movements — and that makes all the difference.<br><br>
+            In a short period of time, I have already noticed a clear improvement, not only in aesthetics, but especially in confidence and well-being, which was exactly what I was looking for.<br><br>
+            I am certain that this journey with Joshua will continue for a long time, and I hope to keep learning and evolving with him."
+          </p>
+          <p class="client-name">– Leandro</p>
+        </div>
 
-          In addition, his technique is extremely refined, both in teaching exercise execution and in explaining the science behind the movements — and that makes all the difference. 
-          In a short period of time, I have already noticed a clear improvement, not only in aesthetics, but especially in confidence and well-being, which was exactly what I was looking for.<br><br>
-
-          I am certain that this journey with Joshua will continue for a long time, and I hope to keep learning and evolving with him."
-          <p class="client-name" style="font-weight:bold; color:#d0001f;">– Leandro</p>
-      </p>
+        <!-- Nav Arrows -->
+        <a class="prev" onclick="moveSlide(-1)">&#10094;</a>
+        <a class="next" onclick="moveSlide(1)">&#10095;</a>
       </div>
 
-    <!-- Navigation Arrows -->
-  <a class="prev" onclick="moveSlide(-1)">&#10094;</a>
-  <a class="next" onclick="moveSlide(1)">&#10095;</a>
-</div>
-
-<!-- Dots -->
-<div class="dots">
-  <span class="dot active" onclick="goToSlide(0)"></span>
-  <span class="dot" onclick="goToSlide(1)"></span>
-  <span class="dot" onclick="goToSlide(2)"></span>
-</div>
-</section>
+      <!-- Dots -->
+      <div class="dots">
+        <span class="dot active" onclick="goToSlide(0)"></span>
+      </div>
+    </div>
   </section>
 
+  <!-- QR Code Library -->
   <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
   <script>
     const skills = [
@@ -387,9 +392,9 @@
     ];
 
     const certifications = [
-     "NCSF Certified Personal Trainer",
+      "NCSF Certified Personal Trainer",
       "Pregnancy & Postpartum Exercise Specialist",
-     "Dual Zone Myofascial Release"
+      "Dual Zone Myofascial Release"
     ];
 
     function setActiveButton(button) {
@@ -431,51 +436,50 @@
       });
     }
 
-    <script>
-  let currentSlideIndex = 0;
-  let slideInterval;
-  const slides = document.querySelectorAll('.carousel-item');
-  const dots = document.querySelectorAll('.dot');
-  const rotationSpeed = 5000; // 5 seconds
+    // Carousel logic
+    let currentSlideIndex = 0;
+    let slideInterval;
+    const rotationSpeed = 5000;
 
-  function showSlide(index) {
-    slides.forEach((slide, i) => {
-      slide.classList.remove('active');
-      dots[i].classList.remove('active');
-    });
+    function showSlide(index) {
+      const slides = document.querySelectorAll('.carousel-item');
+      const dots = document.querySelectorAll('.dot');
+      slides.forEach((slide, i) => {
+        slide.classList.remove('active');
+        dots[i]?.classList.remove('active');
+      });
+      currentSlideIndex = index;
+      slides[currentSlideIndex].classList.add('active');
+      dots[currentSlideIndex]?.classList.add('active');
+    }
 
-    currentSlideIndex = index;
-    slides[currentSlideIndex].classList.add('active');
-    dots[currentSlideIndex].classList.add('active');
-  }
+    function moveSlide(direction) {
+      const slides = document.querySelectorAll('.carousel-item');
+      let newIndex = currentSlideIndex + direction;
+      if (newIndex < 0) newIndex = slides.length - 1;
+      if (newIndex >= slides.length) newIndex = 0;
+      showSlide(newIndex);
+      resetInterval();
+    }
 
-  function moveSlide(direction) {
-    let newIndex = currentSlideIndex + direction;
-    if (newIndex < 0) newIndex = slides.length - 1;
-    if (newIndex >= slides.length) newIndex = 0;
-    showSlide(newIndex);
-    resetInterval();
-  }
+    function goToSlide(index) {
+      showSlide(index);
+      resetInterval();
+    }
 
-  function goToSlide(index) {
-    showSlide(index);
-    resetInterval();
-  }
+    function startAutoRotation() {
+      slideInterval = setInterval(() => moveSlide(1), rotationSpeed);
+    }
 
-  function startAutoRotation() {
-    slideInterval = setInterval(() => moveSlide(1), rotationSpeed);
-  }
+    function resetInterval() {
+      clearInterval(slideInterval);
+      startAutoRotation();
+    }
 
-  function resetInterval() {
-    clearInterval(slideInterval);
-    startAutoRotation();
-  }
-
-  window.onload = function() {
-    showSlide(0);
-    startAutoRotation();
-  };
-</script>
-
+    window.onload = function() {
+      showSlide(0);
+      startAutoRotation();
+    };
+  </script>
 </body>
 </html>
