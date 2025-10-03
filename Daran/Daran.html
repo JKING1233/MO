@@ -411,7 +411,7 @@ If you’re looking for a knowledgeable, motivating personal trainer who can hel
   <span class="dot active" onclick="goToSlide(0)"></span>
   <span class="dot" onclick="goToSlide(1)"></span>
   <span class="dot" onclick="goToSlide(2)"></span>
-  <span class="dot" onclick="goToslide(3)"></span>
+  <span class="dot" onclick="goToSlide(3)"></span>
 </div>
 
 
@@ -427,61 +427,61 @@ If you’re looking for a knowledgeable, motivating personal trainer who can hel
     ];
 
     const certifications = [
-      "NCSF Certified Personal Trainer",
+      "NCSF Certified Personal Trainer"
     ];
 
     function showSkills() {
-      document.getElementById("toggle-title").textContent = "Skills";
-      document.getElementById("toggle-content").innerHTML = skills.map(item => `<li>${item}</li>`).join('');
-    }
+    document.getElementById("toggle-title").textContent = "Skills";
+    document.getElementById("toggle-content").innerHTML = skills.map(item => `<li>${item}</li>`).join('');
+  }
 
-    function showCertifications() {
-      document.getElementById("toggle-title").textContent = "Certifications";
-      document.getElementById("toggle-content").innerHTML = certifications.map(item => `<li>${item}</li>`).join('');
-    }
+  function showCertifications() {
+    document.getElementById("toggle-title").textContent = "Certifications";
+    document.getElementById("toggle-content").innerHTML = certifications.map(item => `<li>${item}</li>`).join('');
+  }
 
-    function generateQRCode() {
-      const memberId = document.getElementById("memberId").value || "___________";
-      const email = "Shridaran.Rao@virginactive.com.sg";
-      const subject = encodeURIComponent("Training Inquiry");
-      const body = encodeURIComponent(
-        `Hello Daran,\n\nMy Member ID is: ${memberId}\n\nI am interested in learning more about personal training and would like to have a wellness consultation.`
-      );
+  function generateQRCode() {
+    const memberId = document.getElementById("memberId").value || "___________";
+    const email = "Shridaran.Rao@virginactive.com.sg";
+    const subject = encodeURIComponent("Training Inquiry");
+    const body = encodeURIComponent(
+      `Hello Daran,\n\nMy Member ID is: ${memberId}\n\nI am interested in learning more about personal training and would like to have a wellness consultation.`
+    );
 
-      const mailtoLink = `mailto:${email}?subject=${subject}&body=${body}`;
+    const mailtoLink = `mailto:${email}?subject=${subject}&body=${body}`;
 
-      const qrContainer = document.getElementById("qr-code");
-      qrContainer.innerHTML = "";
+    const qrContainer = document.getElementById("qr-code");
+    qrContainer.innerHTML = "";
 
-      new QRCode(qrContainer, {
-        text: mailtoLink,
-        width: 250,
-        height: 250,
-        colorDark: "#000000",
-        colorLight: "#ffffff",
-        correctLevel: QRCode.CorrectLevel.H
-      });
-    }
-    
-    <script>
+    new QRCode(qrContainer, {
+      text: mailtoLink,
+      width: 250,
+      height: 250,
+      colorDark: "#000000",
+      colorLight: "#ffffff",
+      correctLevel: QRCode.CorrectLevel.H
+    });
+  }
+
+  // ✅ Proper carousel code (no nested <script>)
   let currentSlideIndex = 0;
   let slideInterval;
-  const slides = document.querySelectorAll('.carousel-item');
-  const dots = document.querySelectorAll('.dot');
-  const rotationSpeed = 5000; // 5 seconds
+  const rotationSpeed = 5000; // 5s
 
   function showSlide(index) {
+    const slides = document.querySelectorAll('.carousel-item');
+    const dots = document.querySelectorAll('.dot');
     slides.forEach((slide, i) => {
       slide.classList.remove('active');
       dots[i].classList.remove('active');
     });
-
     currentSlideIndex = index;
     slides[currentSlideIndex].classList.add('active');
     dots[currentSlideIndex].classList.add('active');
   }
 
   function moveSlide(direction) {
+    const slides = document.querySelectorAll('.carousel-item');
     let newIndex = currentSlideIndex + direction;
     if (newIndex < 0) newIndex = slides.length - 1;
     if (newIndex >= slides.length) newIndex = 0;
