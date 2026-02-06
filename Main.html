@@ -56,6 +56,9 @@
         }
         .trainer-card {
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
         }
         .trainer-card:hover {
             transform: translateY(-4px);
@@ -63,6 +66,13 @@
         }
         .trainer-card img {
             object-position: center center;
+            flex-shrink: 0;
+        }
+        .trainer-card > div {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
     </style>
 </head>
@@ -93,137 +103,129 @@
     <main>
         <!-- Our Trainers Bar with Logo -->
         <div id="trainerBar" class="bg-black text-white text-center py-6 sticky-trainer-bar flex items-center justify-center relative">
-             <!-- Virgin Active Logo inside the bar - Now positioned absolutely -->
              <img id="mainLogo" src="virgin-active-logo.png" alt="Virgin Active Logo" class="trainer-bar-logo">
              <h1 class="text-3xl font-bold">Meet Our Trainers</h1>
         </div>
 
-<!-- Senior Coaches -->
-<div class="text-center py-16 px-4 bg-gray-50">
-  <h2 class="text-3xl font-bold text-red-600 mb-12">Senior Coaches</h2>
+        <!-- Senior Coaches -->
+        <div class="text-center py-16 px-4 bg-gray-50">
+          <h2 class="text-3xl font-bold text-red-600 mb-12">Senior Coaches</h2>
 
-  <div class="flex justify-center">
-    <div class="flex flex-col items-center gap-6">
+          <div class="flex justify-center">
+            <div class="flex flex-col items-center gap-6">
 
-      <!-- Row 1: Fazrul Solo -->
-    <div class="flex justify-center w-full">
-      <a href="Fazrul/Fazrul.html" class="trainer-card bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl w-full max-w-xs">
-        <img src="Fazrul.jpg" alt="Fazrul" class="w-full h-80 object-cover object-center">
-        <div class="p-6 text-center">
-          <h3 class="text-xl font-bold mb-2">Fazrul</h3>
-          <p class="text-red-600 text-sm font-medium">Fitness Manager & Senior Coach</p>
+              <!-- Row 1: Fazrul Solo -->
+              <div class="flex justify-center w-full">
+                <a href="Fazrul/Fazrul.html" class="trainer-card bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl w-full max-w-xs">
+                  <img src="Fazrul.jpg" alt="Fazrul" class="w-full h-80 object-cover object-center">
+                  <div class="p-6 text-center">
+                    <h3 class="text-xl font-bold mb-2">Fazrul</h3>
+                    <p class="text-red-600 text-sm font-medium">Fitness Manager & Senior Coach</p>
+                  </div>
+                </a>
+              </div>
+                
+              <!-- Row 2: Sheril, Ryan, Daya (3 columns) -->
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl w-full items-stretch">
+                <!-- Sheril -->
+                <a href="Sheril/Sheril.html" class="trainer-card bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl">
+                  <img src="Sheril.jpg" alt="Sheril" class="w-full h-80 object-cover object-center">
+                  <div class="p-6 text-center">
+                    <h3 class="text-xl font-bold mb-2">Sheril</h3>
+                    <p class="text-red-600 text-sm font-medium">Senior Coach</p>
+                  </div>
+                </a>
+
+                <!-- Ryan -->
+                <a href="Ryan/Ryan.html" class="trainer-card bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl">
+                  <img src="Ryan.jpg" alt="Ryan" class="w-full h-80 object-cover object-center">
+                  <div class="p-6 text-center">
+                    <h3 class="text-xl font-bold mb-2">Ryan</h3>
+                    <p class="text-red-600 text-sm font-medium">Senior Coach</p>
+                  </div>
+                </a>
+
+                <!-- Daya -->
+                <a href="Daya/Daya.html" class="trainer-card bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl">
+                  <img src="Daya.jpg" alt="Daya" class="w-full h-80 object-cover object-center">
+                  <div class="p-6 text-center">
+                    <h3 class="text-xl font-bold mb-2">Daya</h3>
+                    <p class="text-red-600 text-sm font-medium">Senior Coach</p>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
-      </a>
-    </div>
-        
-      <!-- Row 2: Sheril, Ryan, Daya (3 columns) -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl w-full">
-      
-      <!-- Sheril -->
-      <div class="flex justify-center">
-        <a href="Sheril/Sheril.html" class="trainer-card bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl w-full max-w-xs">
-          <img src="Sheril.jpg" alt="Sheril" class="w-full h-80 object-cover object-center">
-          <div class="p-6 text-center">
-            <h3 class="text-xl font-bold mb-2">Sheril</h3>
-            <p class="text-red-600 text-sm font-medium">Senior Coach</p>
-          </div>
-        </a>
-      </div>
 
-      <!-- Ryan -->
-      <div class="flex justify-center">
-        <a href="Ryan/Ryan.html" class="trainer-card bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl w-full max-w-xs">
-          <img src="Ryan.jpg" alt="Ryan" class="w-full h-80 object-cover object-center">
-          <div class="p-6 text-center">
-            <h3 class="text-xl font-bold mb-2">Ryan</h3>
-            <p class="text-red-600 text-sm font-medium">Senior Coach</p>
-          </div>
-        </a>
-      </div>
-
-      <!-- Daya -->
-      <div class="flex justify-center">
-        <a href="Daya/Daya.html" class="trainer-card bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl w-full max-w-xs">
-          <img src="Daya.jpg" alt="Daya" class="w-full h-80 object-cover object-center">
-          <div class="p-6 text-center">
-            <h3 class="text-xl font-bold mb-2">Daya</h3>
-            <p class="text-red-600 text-sm font-medium">Senior Coach</p>
-          </div>
-        </a>
-      </div>
-      
-    </div>
-  </div>
-</div>
-            <!-- Coaches -->
-            <div class="text-center py-16 px-4">
-                <h2 class="text-3xl font-bold text-red-600 mb-12">Certified Coaches</h2>
-                <div class="flex justify-center">
-                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 max-w-7xl w-full">
-                        <a href="Mario/Mario.html" class="trainer-card bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl">
-                            <img src="Mario.jpg" alt="Mario" class="w-full h-80 object-cover">
-                            <div class="p-6 text-center"><h3 class="text-xl font-bold">Mario</h3><p class="text-red-600 text-sm font-medium">Coach</p></div>
-                        </a>
-                        <a href="Hafiz/Hafiz.html" class="trainer-card bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl">
-                            <img src="Hafiz.jpg" alt="Hafiz" class="w-full h-80 object-cover">
-                            <div class="p-6 text-center"><h3 class="text-xl font-bold">Hafiz</h3><p class="text-red-600 text-sm font-medium">Coach</p></div>
-                        </a>
-                        <a href="Roki/Roki.html" class="trainer-card bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl">
-                            <img src="Roki.jpg" alt="Roki" class="w-full h-80 object-cover">
-                            <div class="p-6 text-center"><h3 class="text-xl font-bold">Roki</h3><p class="text-red-600 text-sm font-medium">Coach</p></div>
-                        </a>
-                        <a href="Haris/Haris.html" class="trainer-card bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl">
-                            <img src="Haris.jpeg" alt="Haris" class="w-full h-80 object-cover">
-                            <div class="p-6 text-center"><h3 class="text-xl font-bold">Haris</h3><p class="text-red-600 text-sm font-medium">Coach</p></div>
-                        </a>
-                        <a href="Chips/Chips.html" class="trainer-card bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl">
-                            <img src="Chips.jpg" alt="Chips" class="w-full h-80 object-cover">
-                            <div class="p-6 text-center"><h3 class="text-xl font-bold">Chips</h3><p class="text-red-600 text-sm font-medium">Coach</p></div>
-                        </a>
-                        <a href="Gwen/Gwen.html" class="trainer-card bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl">
-                            <img src="Gwen.jpeg" alt="Gwen" class="w-full h-80 object-cover">
-                            <div class="p-6 text-center"><h3 class="text-xl font-bold">Gwen</h3><p class="text-red-600 text-sm font-medium">Coach</p></div>
-                        </a>
-                        <a href="Joshua/Joshua.html" class="trainer-card bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl">
-                            <img src="Joshua.jpeg" alt="Joshua" class="w-full h-80 object-cover">
-                            <div class="p-6 text-center"><h3 class="text-xl font-bold">Joshua</h3><p class="text-red-600 text-sm font-medium">Coach</p></div>
-                        </a>
-                        <a href="Christine/Christine.html" class="trainer-card bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl">
-                            <img src="Christine.jpeg" alt="Christine" class="w-full h-80 object-cover">
-                            <div class="p-6 text-center"><h3 class="text-xl font-bold">Christine</h3><p class="text-red-600 text-sm font-medium">Coach</p></div>
-                        </a>
-                        <a href="Po/Po.html" class="trainer-card bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl">
-                            <img src="Po.jpeg" alt="Po" class="w-full h-80 object-cover">
-                            <div class="p-6 text-center"><h3 class="text-xl font-bold">Po</h3><p class="text-red-600 text-sm font-medium">Coach</p></div>
-                        </a>
-                        <a href="Reuben/Reuben.html" class="trainer-card bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl">
-                            <img src="Reuben.jpg" alt="Reuben" class="w-full h-80 object-cover">
-                            <div class="p-6 text-center"><h3 class="text-xl font-bold">Reuben</h3><p class="text-red-600 text-sm font-medium">Coach</p></div>
-                        </a>
-                        <a href="Daran/Daran.html" class="trainer-card bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl">
-                            <img src="Daran.jpeg" alt="Daran" class="w-full h-80 object-cover">
-                            <div class="p-6 text-center"><h3 class="text-xl font-bold">Daran</h3><p class="text-red-600 text-sm font-medium">Coach</p></div>
-                        </a>
-                        <a href="Jomari/Jomari.html" class="trainer-card bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl">
-                            <img src="Jomari.jpeg" alt="Jomari" class="w-full h-80 object-cover">
-                            <div class="p-6 text-center"><h3 class="text-xl font-bold">Jomari</h3><p class="text-red-600 text-sm font-medium">Coach</p></div>
-                        </a>
-                        <a href="Kurnia/Kurnia.html" class="trainer-card bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl">
-                            <img src="Kurnia.jpeg" alt="Kurnia" class="w-full h-80 object-cover">
-                            <div class="p-6 text-center"><h3 class="text-xl font-bold">Kurnia</h3><p class="text-red-600 text-sm font-medium">Coach</p></div>
-                        </a>
-                        <a href="Na'im/Na'im.html" class="trainer-card bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl">
-                            <img src="Na'im.jpeg" alt="Na'im" class="w-full h-80 object-cover">
-                            <div class="p-6 text-center"><h3 class="text-xl font-bold">Na'im</h3><p class="text-red-600 text-sm font-medium">Coach</p></div>
-                        </a>
-                        <a href="Imran/Imran.html" class="trainer-card bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl">
-                            <img src="Imran.jpeg" alt="Imran" class="w-full h-80 object-cover">
-                            <div class="p-6 text-center"><h3 class="text-xl font-bold">Imran</h3><p class="text-red-600 text-sm font-medium">Coach</p></div>
-                        </a>
-                    </div>
+        <!-- Coaches -->
+        <div class="text-center py-16 px-4">
+            <h2 class="text-3xl font-bold text-red-600 mb-12">Certified Coaches</h2>
+            <div class="flex justify-center">
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 max-w-7xl w-full items-stretch">
+                    <a href="Mario/Mario.html" class="trainer-card bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl">
+                        <img src="Mario.jpg" alt="Mario" class="w-full h-80 object-cover">
+                        <div class="p-6 text-center"><h3 class="text-xl font-bold">Mario</h3><p class="text-red-600 text-sm font-medium">Coach</p></div>
+                    </a>
+                    <a href="Hafiz/Hafiz.html" class="trainer-card bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl">
+                        <img src="Hafiz.jpg" alt="Hafiz" class="w-full h-80 object-cover">
+                        <div class="p-6 text-center"><h3 class="text-xl font-bold">Hafiz</h3><p class="text-red-600 text-sm font-medium">Coach</p></div>
+                    </a>
+                    <a href="Roki/Roki.html" class="trainer-card bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl">
+                        <img src="Roki.jpg" alt="Roki" class="w-full h-80 object-cover">
+                        <div class="p-6 text-center"><h3 class="text-xl font-bold">Roki</h3><p class="text-red-600 text-sm font-medium">Coach</p></div>
+                    </a>
+                    <a href="Haris/Haris.html" class="trainer-card bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl">
+                        <img src="Haris.jpeg" alt="Haris" class="w-full h-80 object-cover">
+                        <div class="p-6 text-center"><h3 class="text-xl font-bold">Haris</h3><p class="text-red-600 text-sm font-medium">Coach</p></div>
+                    </a>
+                    <a href="Chips/Chips.html" class="trainer-card bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl">
+                        <img src="Chips.jpg" alt="Chips" class="w-full h-80 object-cover">
+                        <div class="p-6 text-center"><h3 class="text-xl font-bold">Chips</h3><p class="text-red-600 text-sm font-medium">Coach</p></div>
+                    </a>
+                    <a href="Gwen/Gwen.html" class="trainer-card bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl">
+                        <img src="Gwen.jpeg" alt="Gwen" class="w-full h-80 object-cover">
+                        <div class="p-6 text-center"><h3 class="text-xl font-bold">Gwen</h3><p class="text-red-600 text-sm font-medium">Coach</p></div>
+                    </a>
+                    <a href="Joshua/Joshua.html" class="trainer-card bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl">
+                        <img src="Joshua.jpeg" alt="Joshua" class="w-full h-80 object-cover">
+                        <div class="p-6 text-center"><h3 class="text-xl font-bold">Joshua</h3><p class="text-red-600 text-sm font-medium">Coach</p></div>
+                    </a>
+                    <a href="Christine/Christine.html" class="trainer-card bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl">
+                        <img src="Christine.jpeg" alt="Christine" class="w-full h-80 object-cover">
+                        <div class="p-6 text-center"><h3 class="text-xl font-bold">Christine</h3><p class="text-red-600 text-sm font-medium">Coach</p></div>
+                    </a>
+                    <a href="Po/Po.html" class="trainer-card bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl">
+                        <img src="Po.jpeg" alt="Po" class="w-full h-80 object-cover">
+                        <div class="p-6 text-center"><h3 class="text-xl font-bold">Po</h3><p class="text-red-600 text-sm font-medium">Coach</p></div>
+                    </a>
+                    <a href="Reuben/Reuben.html" class="trainer-card bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl">
+                        <img src="Reuben.jpg" alt="Reuben" class="w-full h-80 object-cover">
+                        <div class="p-6 text-center"><h3 class="text-xl font-bold">Reuben</h3><p class="text-red-600 text-sm font-medium">Coach</p></div>
+                    </a>
+                    <a href="Daran/Daran.html" class="trainer-card bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl">
+                        <img src="Daran.jpeg" alt="Daran" class="w-full h-80 object-cover">
+                        <div class="p-6 text-center"><h3 class="text-xl font-bold">Daran</h3><p class="text-red-600 text-sm font-medium">Coach</p></div>
+                    </a>
+                    <a href="Jomari/Jomari.html" class="trainer-card bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl">
+                        <img src="Jomari.jpeg" alt="Jomari" class="w-full h-80 object-cover">
+                        <div class="p-6 text-center"><h3 class="text-xl font-bold">Jomari</h3><p class="text-red-600 text-sm font-medium">Coach</p></div>
+                    </a>
+                    <a href="Kurnia/Kurnia.html" class="trainer-card bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl">
+                        <img src="Kurnia.jpeg" alt="Kurnia" class="w-full h-80 object-cover">
+                        <div class="p-6 text-center"><h3 class="text-xl font-bold">Kurnia</h3><p class="text-red-600 text-sm font-medium">Coach</p></div>
+                    </a>
+                    <a href="Na'im/Na'im.html" class="trainer-card bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl">
+                        <img src="Na'im.jpeg" alt="Na'im" class="w-full h-80 object-cover">
+                        <div class="p-6 text-center"><h3 class="text-xl font-bold">Na'im</h3><p class="text-red-600 text-sm font-medium">Coach</p></div>
+                    </a>
+                    <a href="Imran/Imran.html" class="trainer-card bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl">
+                        <img src="Imran.jpeg" alt="Imran" class="w-full h-80 object-cover">
+                        <div class="p-6 text-center"><h3 class="text-xl font-bold">Imran</h3><p class="text-red-600 text-sm font-medium">Coach</p></div>
+                    </a>
                 </div>
             </div>
-        </section>
+        </div>
 
         <!-- Enhanced Pricing Section -->
         <section id="pricing" class="bg-gradient-to-b from-red-700 to-red-600 text-white py-20">
@@ -533,6 +535,7 @@
     </script>
 </body>
 </html>
+
 
 
 
