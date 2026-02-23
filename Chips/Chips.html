@@ -3,143 +3,359 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Chips \u2014 Coach | Virgin Active</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+  <title>Chips - Trainer Profile</title>
   <style>
-    :root {
-      --red: #E8192C;
-      --red-deep: #B01020;
-      --black: #111111;
-      --white: #FFFFFF;
-      --off-white: #F7F7F5;
-      --muted: #888;
-      --border: rgba(0,0,0,0.08);
-      --text: #111111;
-    }
-
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-
     body {
-      background: var(--white);
-      color: var(--text);
-      font-family: 'DM Sans', sans-serif;
-      font-weight: 400;
-      overflow-x: hidden;
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f8f8f8;
+      color: #fff;
     }
 
-    ::-webkit-scrollbar { width: 4px; }
-    ::-webkit-scrollbar-track { background: #f0f0f0; }
-    ::-webkit-scrollbar-thumb { background: var(--red); border-radius: 2px; }
-
-    /* \u2500\u2500\u2500 NAV \u2500\u2500\u2500 */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 1.1rem 2.5rem;
-      background: rgba(255,255,255,0.92);
-      backdrop-filter: blur(20px);
-      border-bottom: 1px solid var(--border);
-      box-shadow: 0 1px 20px rgba(0,0,0,0.06);
-      transition: all 0.3s;
-    }
-
-    nav.scrolled { padding: 0.75rem 2.5rem; }
-
-    .nav-logo img {
-      height: 34px;
-    }
-
-    .nav-logo span {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.4rem; letter-spacing: 0.1em; color: var(--red);
-    }
-
-    .nav-back {
-      display: flex; align-items: center; gap: 0.5rem;
-      font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase;
-      font-weight: 600; color: #666; text-decoration: none;
-      transition: color 0.2s;
-    }
-
-    .nav-back:hover { color: var(--red); }
-
-    .nav-back svg { transition: transform 0.2s; }
-    .nav-back:hover svg { transform: translateX(-3px); }
-
-    /* \u2500\u2500\u2500 HERO \u2500\u2500\u2500 */
-    .hero {
-      min-height: 100vh;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      padding-top: 64px;
-    }
-
-    .hero-image {
-      position: relative;
+    /* Profile Card */
+    .profile-card {
+      max-width: 1000px;
+      margin: 40px auto;
+      background-color: #d0001f;
+      display: flex;
+      flex-wrap: wrap;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
       overflow: hidden;
     }
 
-    .hero-image img {
-      width: 100%; height: 100%;
-      object-fit: cover; object-position: center top;
-      display: block;
+    .profile-image {
+      flex: 1 1 300px;
+      min-width: 300px;
     }
 
-    .hero-image-overlay {
-      position: absolute; inset: 0;
-      background: linear-gradient(to right, transparent 60%, var(--white) 100%);
+    .profile-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
-    /* achievement ribbon */
-    .achievement-ribbon {
-      position: absolute; bottom: 2.5rem; left: 2rem;
-      background: var(--red);
+    .profile-details {
+      flex: 2 1 400px;
+      padding: 30px;
+    }
+
+    .profile-details h1 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
+
+    .profile-details h2 {
+      font-size: 1.2em;
+      margin-bottom: 20px;
+      font-weight: normal;
+    }
+
+    .interests {
+      font-size: 1.1em;
+      margin-bottom: 20px;
+    }
+
+    /* Toggle Buttons */
+    .section-toggle {
+      margin-bottom: 20px;
+    }
+
+    .section-toggle button {
+      background-color: #fff;
+      color: #d0001f;
+      border: 2px solid #fff;
+      padding: 8px 16px;
+      margin-right: 10px;
+      cursor: pointer;
+      font-weight: bold;
+      border-radius: 5px;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    /* Active Button Highlight */
+    .section-toggle button.active {
+      background-color: #d0001f;
       color: #fff;
-      padding: 0.6rem 1.25rem;
-      font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase;
-      font-weight: 700;
-      border-radius: 4px;
-      animation: fadeUp 0.8s 0.6s ease both;
     }
 
-    .hero-content {
-      display: flex; flex-direction: column; justify-content: center;
-      padding: 4rem 3.5rem 4rem 3rem;
+    /* Section Block */
+    .section-block {
+      background: #b8001a;
+      padding: 15px;
+      border-radius: 6px;
+      margin-bottom: 20px;
+    }
+
+    .section-block h3 {
+      margin-top: 0;
+      font-size: 1.2em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .section-block ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .section-block li {
+      margin: 6px 0;
+      padding-left: 16px;
       position: relative;
     }
 
-    .hero-tag {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      font-size: 0.68rem; letter-spacing: 0.25em; text-transform: uppercase;
-      color: var(--red); font-weight: 600;
-      margin-bottom: 1.25rem;
-      animation: fadeUp 0.7s ease both;
+    .section-block li::before {
+      content: "•";
+      color: white;
+      position: absolute;
+      left: 0;
     }
 
-    .hero-tag::before {
-      content: ''; width: 24px; height: 2px; background: var(--red);
+    /* Philosophy Section */
+    .philosophy {
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 15px 20px;
+      border-left: 5px solid #ffffff;
+      margin-top: 20px;
+      border-radius: 6px;
     }
 
-    .hero-name {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(4rem, 8vw, 7rem);
-      line-height: 0.9;
-      letter-spacing: 0.02em;
-      color: var(--black);
-      animation: fadeUp 0.7s 0.08s ease both;
+    .philosophy h3 {
+      margin-top: 0;
+      margin-bottom: 10px;
+      font-size: 1.2em;
+      text-transform: uppercase;
+      color: #fff;
     }
 
-    .hero-name em {
-      font-family: 'DM Serif Display', serif;
+    .philosophy p {
       font-style: italic;
-      color: var(--red);
-      display: block;
+      color: #f0f0f0;
+      margin: 0;
     }
 
-    .hero-role {
-      margin-top: 1rem;
-      font-size: 0.8rem; letter-spacing: 0.2em; text-transform: uppercase;
-      color: var(--muted
+    /* Contact Info Section */
+    .contact-info {
+      margin-top: 30px;
+      padding: 20px;
+      background-color: #d0001f;
+      border-radius: 6px;
+    }
+
+    .contact-info h3 {
+      font-size: 1.5em;
+      color: #fff;
+      margin-bottom: 15px;
+    }
+
+    /* Member ID Section */
+    .member-id-section {
+      margin-top: 20px;
+      padding: 15px;
+      background-color: #b8001a;
+      border-radius: 8px;
+    }
+
+    .member-id-section input {
+      padding: 8px;
+      width: 80%;
+      margin-bottom: 10px;
+      border-radius: 4px;
+      border: none;
+    }
+
+    .member-id-section button {
+      padding: 8px 12px;
+      background-color: #fff;
+      color: #d0001f;
+      font-weight: bold;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    #qr-code {
+      margin-top: 10px;
+    }
+
+    /* Back Link Styling */
+    .back-link {
+      display: inline-block;
+      margin-top: 30px;
+      background-color: #fff;
+      color: #d0001f;
+      border: 2px solid #fff;
+      padding: 10px 20px;
+      cursor: pointer;
+      font-weight: bold;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .back-link:hover {
+      background-color: #fff;
+      color: #d0001f;
+    }
+
+    /* Testimonials Section */
+    .testimonial-section {
+      background-color: #fff;
+      padding: 40px 20px;
+      margin: 40px auto;
+      border-top: 4px solid #d0001f;
+      border-radius: 0 0 12px 12px;
+      box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
+      max-width: 1000px;
+    }
+
+    .testimonial-container {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+      color: #333;
+    }
+
+    .testimonial-container h2 {
+      font-size: 2em;
+      color: #d0001f;
+      margin-bottom: 20px;
+    }
+
+    .placeholder {
+      font-style: italic;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="profile-card">
+    <div class="profile-image">
+      <img src="Chips.jpg" alt="Chips - Trainer" />
+    </div>
+    <div class="profile-details">
+      <h1>Chips</h1>
+      <h2>Coach</h2>
+      <div class="interests">
+        <strong>About Me:</strong> 2023 Miss Singapore Bikini Champion,2024 NPC Malaysia bikini Masters 2nd and 3rd place.<br><BR>
+        I believe motion is lotion, strength train for longetivity!
+      </div>
+
+      <!-- Toggle Buttons -->
+      <div class="section-toggle">
+        <button onclick="showSkills(event)" class="active">Show Skills</button>
+        <button onclick="showCertifications(event)">Show Certifications</button>
+      </div>
+
+      <!-- Dynamic Content -->
+      <div id="toggle-section" class="section-block">
+        <h3 id="toggle-title">Skills</h3>
+        <ul id="toggle-content">
+          <li>Strength training</li>
+          <li>Fat Loss</li>
+          <li>body re-composition</li>
+          <li>Muscle Hypertrophy</li>
+          <li>rehabilitation</li>
+        </ul>
+      </div>
+
+      <!-- Philosophy -->
+      <div class="philosophy">
+        <h3>Philosophy</h3>
+        <p>"Embrace the journey, celebrate small victories and push beyond limits!"</p>
+      </div>
+
+      <!-- Contact Info -->
+      <div class="contact-info">
+        <h3>Contact Information</h3>
+        <div class="notification" style="background-color: rgba(255,255,255,0.2); padding: 10px; border-radius: 5px; margin-bottom: 15px;">
+          <p style="margin: 0; font-style: italic;">After scanning the QR Code, our trainers will contact you within 24-48 hours.</p>
+        </div>
+        <div class="member-id-section">
+          <label for="memberId">Enter Your Member ID:</label><br>
+          <input type="text" id="memberId" placeholder="e.g. 123456789"/><br>
+          <button onclick="generateQRCode()">Generate QR Code</button>
+          <div id="qr-code"></div>
+        </div>
+      </div>
+
+      <a class="back-link" href="../Main.html">← Back to Home</a>
+    </div>
+  </div>
+
+  <!-- Testimonials Section -->
+  <section class="testimonial-section">
+    <div class="testimonial-container">
+      <h2>Client Testimonials</h2>
+      <p class="placeholder">No testimonials available yet. Check back soon!</p>
+    </div>
+  </section>
+
+  <!-- QR Code Library -->
+  <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+  <script>
+    const skills = [
+      "Strength Training",
+      "Fat Loss",
+      "body re-composition",
+      "Hypertrophy Training",
+      "rehabilitation"
+    ];
+
+    const certifications = [
+      "NCSF Personal Trainer"
+    ];
+
+    /* Toggle Logic */
+    function setActiveButton(button) {
+      document.querySelectorAll(".section-toggle button").forEach(btn => btn.classList.remove("active"));
+      button.classList.add("active");
+    }
+
+    function showSkills(event) {
+      setActiveButton(event.target);
+      document.getElementById("toggle-title").textContent = "Skills";
+      document.getElementById("toggle-content").innerHTML = skills.map(item => `<li>${item}</li>`).join('');
+    }
+
+    function showCertifications(event) {
+      setActiveButton(event.target);
+      document.getElementById("toggle-title").textContent = "Certifications";
+      document.getElementById("toggle-content").innerHTML = certifications.map(item => `<li>${item}</li>`).join('');
+    }
+
+    /* QR Code Generator */
+    function generateQRCode() {
+      const memberId = document.getElementById("memberId").value || "___________";
+      const email = "Chips.Wang@virginactive.com.sg";
+      const subject = encodeURIComponent("Training Inquiry");
+
+      const body = encodeURIComponent(
+        `Hello Chips,\n\nMy Member ID is: ${memberId}\n\nI am interested in more about personal training and would like to have a wellness consultation.`
+      );
+
+      const mailtoLink = `mailto:${email}?subject=${subject}&body=${body}`;
+
+      const qrContainer = document.getElementById("qr-code");
+      qrContainer.innerHTML = "";
+
+      new QRCode(qrContainer, {
+        text: mailtoLink,
+        width: 250,
+        height: 250,
+        colorDark: "#000000",
+        colorLight: "#ffffff",
+        correctLevel: QRCode.CorrectLevel.H
+      });
+    }
+
+    /* Initialize Default View */
+    window.onload = function() {
+      showSkills({ target: document.querySelector(".section-toggle button") });
+    };
+  </script>
+</body>
+</html>
