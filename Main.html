@@ -296,16 +296,16 @@
 
         .senior-featured {
             grid-column: 1 / -1;
-            max-width: 360px;
-            margin: 0 auto;
-            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.25rem;
         }
 
         .senior-row {
             grid-column: 1 / -1;
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.25rem;
         }
 
         .trainer-card {
@@ -792,7 +792,7 @@
         @media (max-width: 768px) {
             .nav-links { display: none; }
             .hamburger { display: flex; }
-            .senior-row { grid-template-columns: 1fr; }
+            .senior-row { grid-template-columns: repeat(2, 1fr); }
             .coaches-grid { grid-template-columns: repeat(2, 1fr); }
             .ft-grid { grid-template-columns: 1fr 1fr; }
         }
@@ -865,39 +865,35 @@
 
     <div class="senior-grid reveal">
         <div class="senior-featured">
-            <a href="Fazrul/Fazrul.html" class="trainer-card">
-                <div class="trainer-card-overlay"></div>
-                <img src="Fazrul.jpg" alt="Fazrul" class="trainer-card-img" onerror="this.src='https://placehold.co/400x533/1A1A1A/888?text=Fazrul'">
-                <div class="trainer-card-body">
-                    <div class="trainer-name">Fazrul</div>
-                    <div class="trainer-role">Fitness Manager & Senior Coach</div>
+            <a href="Fazrul/Fazrul.html" class="coach-card">
+                <img src="Fazrul.jpg" alt="Fazrul" class="coach-card-img" onerror="this.src='https://placehold.co/300x400/f0f0f0/999?text=Fazrul'">
+                <div class="coach-card-body">
+                    <div class="coach-name">Fazrul</div>
+                    <div class="coach-role" style="color:var(--red)">Fitness Manager & Senior Coach</div>
                 </div>
             </a>
         </div>
 
         <div class="senior-row">
-            <a href="Sheril/Sheril.html" class="trainer-card">
-                <div class="trainer-card-overlay"></div>
-                <img src="Sheril.jpg" alt="Sheril" class="trainer-card-img" onerror="this.src='https://placehold.co/400x533/1A1A1A/888?text=Sheril'">
-                <div class="trainer-card-body">
-                    <div class="trainer-name">Sheril</div>
-                    <div class="trainer-role">Senior Coach</div>
+            <a href="Sheril/Sheril.html" class="coach-card">
+                <img src="Sheril.jpg" alt="Sheril" class="coach-card-img" onerror="this.src='https://placehold.co/300x400/f0f0f0/999?text=Sheril'">
+                <div class="coach-card-body">
+                    <div class="coach-name">Sheril</div>
+                    <div class="coach-role" style="color:var(--red)">Senior Coach</div>
                 </div>
             </a>
-            <a href="Ryan/Ryan.html" class="trainer-card">
-                <div class="trainer-card-overlay"></div>
-                <img src="Ryan.jpg" alt="Ryan" class="trainer-card-img" onerror="this.src='https://placehold.co/400x533/1A1A1A/888?text=Ryan'">
-                <div class="trainer-card-body">
-                    <div class="trainer-name">Ryan</div>
-                    <div class="trainer-role">Senior Coach</div>
+            <a href="Ryan/Ryan.html" class="coach-card">
+                <img src="Ryan.jpg" alt="Ryan" class="coach-card-img" onerror="this.src='https://placehold.co/300x400/f0f0f0/999?text=Ryan'">
+                <div class="coach-card-body">
+                    <div class="coach-name">Ryan</div>
+                    <div class="coach-role" style="color:var(--red)">Senior Coach</div>
                 </div>
             </a>
-            <a href="Daya/Daya.html" class="trainer-card">
-                <div class="trainer-card-overlay"></div>
-                <img src="Daya.jpg" alt="Daya" class="trainer-card-img" onerror="this.src='https://placehold.co/400x533/1A1A1A/888?text=Daya'">
-                <div class="trainer-card-body">
-                    <div class="trainer-name">Daya</div>
-                    <div class="trainer-role">Senior Coach</div>
+            <a href="Daya/Daya.html" class="coach-card">
+                <img src="Daya.jpg" alt="Daya" class="coach-card-img" onerror="this.src='https://placehold.co/300x400/f0f0f0/999?text=Daya'">
+                <div class="coach-card-body">
+                    <div class="coach-name">Daya</div>
+                    <div class="coach-role" style="color:var(--red)">Senior Coach</div>
                 </div>
             </a>
         </div>
