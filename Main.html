@@ -629,6 +629,96 @@
             font-size: 0.82rem; color: rgba(255,255,255,0.5); line-height: 1.5;
         }
 
+        /* ─── CUSTOM DROPDOWN ─── */
+        .custom-select-wrapper {
+            position: relative;
+        }
+
+        .custom-select-trigger {
+            width: 100%;
+            display: flex; align-items: center; justify-content: space-between;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 0.85rem 1rem;
+            color: var(--muted);
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: border-color 0.2s;
+            text-align: left;
+        }
+
+        .custom-select-trigger.selected {
+            color: var(--white);
+        }
+
+        .custom-select-trigger:focus,
+        .custom-select-trigger.open {
+            outline: none;
+            border-color: var(--red);
+        }
+
+        .custom-select-trigger svg {
+            flex-shrink: 0; opacity: 0.6;
+            transition: transform 0.2s;
+        }
+
+        .custom-select-trigger.open svg {
+            transform: rotate(180deg);
+        }
+
+        .custom-select-menu {
+            display: none;
+            position: absolute; top: calc(100% + 6px); left: 0; right: 0;
+            background: #1e1e1e;
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 10px;
+            overflow: hidden;
+            z-index: 50;
+            max-height: 320px;
+            overflow-y: auto;
+            box-shadow: 0 16px 40px rgba(0,0,0,0.5);
+        }
+
+        .custom-select-menu.open {
+            display: block;
+        }
+
+        .custom-optgroup-label {
+            padding: 0.6rem 1rem 0.4rem;
+            font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase;
+            color: var(--red); font-weight: 700;
+            background: rgba(232,25,44,0.08);
+            border-top: 1px solid rgba(232,25,44,0.15);
+        }
+
+        .custom-optgroup-label:first-child {
+            border-top: none;
+        }
+
+        .custom-option {
+            padding: 0.7rem 1.25rem;
+            font-size: 0.9rem; color: rgba(255,255,255,0.75);
+            cursor: pointer;
+            transition: background 0.15s, color 0.15s;
+        }
+
+        .custom-option:hover {
+            background: rgba(232,25,44,0.12);
+            color: var(--white);
+        }
+
+        .custom-option.selected {
+            background: rgba(232,25,44,0.18);
+            color: var(--white);
+            font-weight: 600;
+        }
+
+        /* scrollbar inside menu */
+        .custom-select-menu::-webkit-scrollbar { width: 3px; }
+        .custom-select-menu::-webkit-scrollbar-thumb { background: var(--red); border-radius: 2px; }
+
         .success-msg {
             display: none;
             text-align: center; padding: 1.25rem;
@@ -938,32 +1028,36 @@
                 <input type="text" id="memberId" name="memberId" required class="form-input" placeholder="Enter your member ID">
             </div>
             <div class="form-group">
-                <label class="form-label" for="trainer">Preferred Trainer</label>
-                <select id="trainer" name="trainer" required class="form-select">
-                    <option value="" disabled selected>Select your trainer</option>
-                    <optgroup label="Senior Coaches">
-                        <option value="Fazrul">Fazrul</option>
-                        <option value="Sheril">Sheril</option>
-                        <option value="Ryan">Ryan</option>
-                        <option value="Daya">Daya</option>
-                    </optgroup>
-                    <optgroup label="Coaches">
-                        <option value="Mario">Mario</option>
-                        <option value="Roki">Roki</option>
-                        <option value="Haris">Haris</option>
-                        <option value="Chips">Chips</option>
-                        <option value="Gwen">Gwen</option>
-                        <option value="Joshua">Joshua</option>
-                        <option value="Po">Po</option>
-                        <option value="Hafiz">Hafiz</option>
-                        <option value="Reuben">Reuben</option>
-                        <option value="Daran">Daran</option>
-                        <option value="Jomari">Jomari</option>
-                        <option value="Kurnia">Kurnia</option>
-                        <option value="Na'im">Na'im</option>
-                        <option value="Imran">Imran</option>
-                    </optgroup>
-                </select>
+                <label class="form-label">Preferred Trainer</label>
+                <input type="hidden" id="trainer" name="trainer">
+                <div class="custom-select-wrapper" id="trainerDropdown">
+                    <button type="button" class="custom-select-trigger" id="trainerTrigger">
+                        <span id="trainerLabel">Select your trainer</span>
+                        <svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/></svg>
+                    </button>
+                    <div class="custom-select-menu" id="trainerMenu">
+                        <div class="custom-optgroup-label">Senior Coaches</div>
+                        <div class="custom-option" data-value="Fazrul">Fazrul</div>
+                        <div class="custom-option" data-value="Sheril">Sheril</div>
+                        <div class="custom-option" data-value="Ryan">Ryan</div>
+                        <div class="custom-option" data-value="Daya">Daya</div>
+                        <div class="custom-optgroup-label">Coaches</div>
+                        <div class="custom-option" data-value="Mario">Mario</div>
+                        <div class="custom-option" data-value="Roki">Roki</div>
+                        <div class="custom-option" data-value="Haris">Haris</div>
+                        <div class="custom-option" data-value="Chips">Chips</div>
+                        <div class="custom-option" data-value="Gwen">Gwen</div>
+                        <div class="custom-option" data-value="Joshua">Joshua</div>
+                        <div class="custom-option" data-value="Po">Po</div>
+                        <div class="custom-option" data-value="Hafiz">Hafiz</div>
+                        <div class="custom-option" data-value="Reuben">Reuben</div>
+                        <div class="custom-option" data-value="Daran">Daran</div>
+                        <div class="custom-option" data-value="Jomari">Jomari</div>
+                        <div class="custom-option" data-value="Kurnia">Kurnia</div>
+                        <div class="custom-option" data-value="Na'im">Na'im</div>
+                        <div class="custom-option" data-value="Imran">Imran</div>
+                    </div>
+                </div>
             </div>
             <div class="form-check">
                 <input type="checkbox" id="pdaConsent" required>
@@ -1037,12 +1131,49 @@
 
     reveals.forEach(el => observer.observe(el));
 
+    // ─── CUSTOM TRAINER DROPDOWN ───
+    const trigger = document.getElementById('trainerTrigger');
+    const menu = document.getElementById('trainerMenu');
+    const trainerLabel = document.getElementById('trainerLabel');
+    const trainerInput = document.getElementById('trainer');
+
+    trigger.addEventListener('click', () => {
+        const isOpen = menu.classList.toggle('open');
+        trigger.classList.toggle('open', isOpen);
+    });
+
+    document.querySelectorAll('.custom-option').forEach(opt => {
+        opt.addEventListener('click', () => {
+            const value = opt.dataset.value;
+            trainerInput.value = value;
+            trainerLabel.textContent = value;
+            trigger.classList.add('selected');
+            document.querySelectorAll('.custom-option').forEach(o => o.classList.remove('selected'));
+            opt.classList.add('selected');
+            menu.classList.remove('open');
+            trigger.classList.remove('open');
+        });
+    });
+
+    // Close on outside click
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('#trainerDropdown')) {
+            menu.classList.remove('open');
+            trigger.classList.remove('open');
+        }
+    });
+
     // ─── FORM ───
     document.getElementById('membershipForm').addEventListener('submit', function(e) {
         e.preventDefault();
 
         if (!document.getElementById('pdaConsent').checked) {
             alert('Please agree to our Privacy & Data Handling practices.');
+            return;
+        }
+
+        if (!trainerInput.value) {
+            alert('Please select a trainer.');
             return;
         }
 
